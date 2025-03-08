@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teen FinanceLab</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".about").classList.add("animate");
+        });
+
+        function openTopic(topic) {
+            const topics = {
+                "Finanzas Personales": "Organización de ingresos, gastos y ahorro para una mejor administración.",
+                "Presupuesto": "Cómo planificar tus gastos y cumplir objetivos financieros de manera efectiva.",
+                "Planeación Financiera": "Estrategias para organizar tu futuro financiero y alcanzar tus metas.",
+                "Consumo Responsable": "Aprende a comprar con conciencia y evitar deudas innecesarias.",
+                "Crédito y Deuda": "Descubre cómo funcionan los préstamos, tarjetas de crédito y tasas de interés.",
+                "Historial Crediticio": "La importancia de un buen historial financiero y cómo construirlo."
+            };
+            
+            const description = topics[topic] || "Información no disponible.";
+            const newWindow = window.open("", "_blank");
+            newWindow.document.write(`
+                <html>
+                <head>
+                    <title>${topic}</title>
+                    <style>
+                        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;600&display=swap');
+                        body {
+                            font-family: 'Poppins', sans-serif;
+                            background-color: #f8f8f2;
+                            margin: 0;
+                            padding: 40px;
+                            text-align: center;
+                            color: #264653;
+                        }
+                        .container {
+                            background: #e9c46a;
+                            padding: 30px;
+                            border-radius: 15px;
+                            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+                            max-width: 600px;
+                            margin: 50px auto;
+                        }
+                        h1 {
+                            font-family: 'Playfair Display', serif;
+                            font-size: 2rem;
+                        }
+                        p {
+                            font-size: 1.2rem;
+                            color: #555;
+                        }
+                        .back-btn {
+                            display: inline-block;
+                            margin-top: 20px;
+                            padding: 10px 20px;
+                            background: #264653;
+                            color: white;
+                            text-decoration: none;
+                            border-radius: 5px;
+                            font-weight: bold;
+                        }
+                        .back-btn:hover {
+                            background: #2a9d8f;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>${topic}</h1>
+                        <p>${description}</p>
+                        <a href="#" class="back-btn" onclick="window.close()">Cerrar</a>
+                    </div>
+                </body>
+                </html>
+            `);
+        }
+    </script>
+    <style>
+        .about.animate {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay">
+            <h1>TEEN FINANCELAB</h1>
+            <p>Finanzas para jóvenes</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#courses">Cursos</a></li>
+            <li><a href="#">Temas</a></li>
+        </ul>
+    </nav>
+
+    <section class="intro" id="inicio">
+        <h2>Aprende a manejar tu dinero con inteligencia</h2>
+        <p>Descubre los fundamentos de educación financiera para tomar mejores decisiones en tu futuro.</p>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Nuestra plataforma está diseñada especialmente para adolescentes de 12 a 18 años, ofreciéndoles herramientas y conocimientos prácticos para manejar su dinero de manera inteligente y responsable.
+
+            Nuestra misión es empoderar a la próxima generación con habilidades financieras esenciales, desde la gestión de ingresos y gastos hasta la toma de decisiones responsables sobre el crédito y la inversión. A través de contenido interactivo, ejemplos reales y un enfoque dinámico, buscamos hacer que aprender sobre finanzas sea fácil, accesible y relevante.
+            
+            En Teen Finance Lab, no solo enseñamos conceptos, sino que guiamos a los jóvenes en la aplicación real de estos conocimientos, ayudándolos a desarrollar hábitos financieros sólidos que los acompañarán toda la vida. ¡Tu futuro financiero comienza aquí!</p>
+    </section>
+
+    <section class="courses" id="courses">
+        <h2>Temas del Curso</h2>
+        <div class="course-grid">
+            <div class="course-card" onclick="openTopic('Finanzas Personales')">
+                <h3>Finanzas Personales</h3>
+                <p>Organización de ingresos, gastos y ahorro.</p>
+            </div>
+            <div class="course-card" onclick="openTopic('Presupuesto')">
+                <h3>Presupuesto</h3>
+                <p>Cómo planificar tus gastos y cumplir objetivos financieros.</p>
+            </div>
+            <div class="course-card" onclick="openTopic('Planeación Financiera')">
+                <h3>Planeación Financiera</h3>
+                <p>Planifica tu futuro financiero con estrategias efectivas.</p>
+            </div>
+            <div class="course-card" onclick="openTopic('Consumo Responsable')">
+                <h3>Consumo Responsable</h3>
+                <p>Aprende a comprar con conciencia y evitar deudas innecesarias.</p>
+            </div>
+            <div class="course-card" onclick="openTopic('Crédito y Deuda')">
+                <h3>Crédito y Deuda</h3>
+                <p>Conoce cómo funcionan los préstamos, tarjetas de crédito y tasas de interés.</p>
+            </div>
+            <div class="course-card" onclick="openTopic('Historial Crediticio')">
+                <h3>Historial Crediticio</h3>
+                <p>La importancia de un buen historial y cómo construirlo.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Teen FinanceLab | Educación financiera para jóvenes</p>
+    </footer>
+</body>
+</html>
